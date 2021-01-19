@@ -44,7 +44,7 @@ function createHeaders(headers) {
   let referer = "";
 
   if (/^(https?\:\/\/[^:\/]+(?:\:\d+)?\/)/i.test(headers["Referer"])) {
-    referer = RegExp.$1;
+    referer = RegExp.$1.replace(/\/$/, "");
   }
 
   return {
