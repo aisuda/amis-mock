@@ -3,7 +3,7 @@ const predefined = {
     'crud': {
         type: "crud",
         draggable: true,
-        api: "/api/sample",
+        api: "http://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample",
         syncLocation: false,
         filter: {
             title: "条件搜索",
@@ -28,7 +28,7 @@ const predefined = {
             {
                 label: "批量删除",
                 actionType: "ajax",
-                api: "delete:/api/sample/$ids",
+                api: "delete:https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample$ids",
                 confirmText: "确定要批量删除?"
             },
             {
@@ -39,7 +39,7 @@ const predefined = {
                     name: "sample-bulk-edit",
                     body: {
                         type: "form",
-                        api: "/api/sample/bulkUpdate2",
+                        api: "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/samplebulkUpdate2",
                         controls: [
                             {
                                 type: 'hidden',
@@ -55,8 +55,8 @@ const predefined = {
                 }
             }
         ],
-        quickSaveApi: "/api/sample/bulkUpdate",
-        quickSaveItemApi: "/api/sample/$id",
+        quickSaveApi: "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/samplebulkUpdate",
+        quickSaveItemApi: "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample$id",
         columns: [
             {
                 name: "id",
@@ -179,7 +179,7 @@ const predefined = {
                             body: {
                                 type: "form",
                                 name: "sample-edit-form",
-                                api: "/api/sample/$id",
+                                api: "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample$id",
                                 controls: [
                                     {
                                         type: "text",
@@ -230,7 +230,7 @@ const predefined = {
                         icon: "fa fa-times text-danger",
                         actionType: "ajax",
                         confirmText: "您确认要删除?",
-                        api: "delete:/api/sample/$id"
+                        api: "delete:https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample$id"
                     }
                 ],
                 toggled: true
