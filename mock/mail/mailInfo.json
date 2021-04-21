@@ -1,0 +1,10 @@
+{
+    "status": 0,
+    "msg": "ok",
+    "data": {
+        "to": "amis@baidu.com",
+        "cc": "baidu@baidu.com",
+        "subject": "这是主题",
+        "body": "## 您好\n ### 这是正文"
+    }
+}
