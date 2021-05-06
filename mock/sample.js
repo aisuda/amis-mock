@@ -33,6 +33,14 @@ function index(req, res) {
   const page = req.query.page || 1;
   let items = DB.concat();
 
+  // 制造点随机内容不然还以为没刷新
+  items = items.map((item) => {
+    return {
+      ...item,
+      engine: item.engine + ' - ' + Math.random().toString(36).substring(7),
+    };
+  });
+
   if (req.query.keywords) {
     const keywords = req.query.keywords;
     items = items.filter(function (item) {
@@ -72,8 +80,8 @@ function index(req, res) {
         count: items.length,
         rows: perPage
           ? items.splice((page - 1) * perPage, perPage)
-          : items.concat()
-      }
+          : items.concat(),
+      },
     });
 
   if (req.query.waitSeconds) {
@@ -92,7 +100,7 @@ function store(req, res) {
 
   return res.json({
     status: 0,
-    msg: '新增成功'
+    msg: '新增成功',
   });
 }
 
@@ -104,14 +112,14 @@ function show(req, res, id) {
   if (!~idx) {
     return res.json({
       status: 404,
-      msg: '保存失败，数据可能已被删除！'
+      msg: '保存失败，数据可能已被删除！',
     });
   }
 
   const item = Object.assign({}, DB[idx], req.body);
   res.json({
     status: 0,
-    data: item
+    data: item,
   });
 }
 
@@ -136,13 +144,13 @@ function update(req, res, id) {
   ) {
     return res.json({
       status: 404,
-      msg: '保存失败，数据可能已被删除！'
+      msg: '保存失败，数据可能已被删除！',
     });
   }
 
   return res.json({
     status: 0,
-    msg: '保存成功'
+    msg: '保存成功',
   });
 }
 
@@ -166,13 +174,13 @@ function del(req, res, id) {
   ) {
     return res.json({
       status: 404,
-      msg: '保存失败，数据可能已被删除！'
+      msg: '保存失败，数据可能已被删除！',
     });
   }
 
   return res.json({
     status: 0,
-    msg: '删除成功'
+    msg: '删除成功',
   });
 }
 
@@ -198,13 +206,13 @@ function bulkUpdate(req, res) {
   ) {
     return res.json({
       status: 404,
-      msg: '保存失败，数据可能已被删除！'
+      msg: '保存失败，数据可能已被删除！',
     });
   }
 
   return res.json({
     status: 0,
-    msg: '保存成功'
+    msg: '保存成功',
   });
 }
 
@@ -233,12 +241,12 @@ function bulkUpdate2(req, res) {
   ) {
     return res.json({
       status: 404,
-      msg: '保存失败，数据可能已被删除！'
+      msg: '保存失败，数据可能已被删除！',
     });
   }
 
   return res.json({
     status: 0,
-    msg: '保存成功'
+    msg: '保存成功',
   });
 }
